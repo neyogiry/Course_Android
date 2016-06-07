@@ -30,5 +30,5 @@ ext {
 
 
     supportLibraryVersion = "23.0.1"
-    butterknifeVersion = "7.0.1"
+    butterknifeVersion = "8.0.1"
 }
