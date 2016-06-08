@@ -2,7 +2,6 @@ package neyo.demo.tipcal;
 
 import android.content.Context;
 import android.content.Intent;
-import android.hardware.input.InputManager;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +17,8 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import neyo.demo.tipcal.fragments.TipHistoryListFragment;
+import neyo.demo.tipcal.fragments.TipHistoryListFragmentListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,11 +40,17 @@ public class MainActivity extends AppCompatActivity {
     private final static int TIP_STEP_CHANGE = 1;
     private final static int DEFAULT_TIP_PERCENTAGE = 10;
 
+    private TipHistoryListFragmentListener fragmentListener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        TipHistoryListFragment fragment = (TipHistoryListFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentlist);
+        fragment.setRetainInstance(true);
+        fragmentListener = (TipHistoryListFragmentListener) fragment;
     }
 
     @Override
@@ -71,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
             double tip = total * (tipPercentage/100d);
 
             String strTip = String.format(getString(R.string.global_message_tip), tip);
+            fragmentListener.action(strTip);
             txtTip.setVisibility(View.VISIBLE);
             txtTip.setText(strTip);
         }

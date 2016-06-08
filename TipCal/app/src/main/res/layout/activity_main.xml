@@ -15,4 +15,12 @@
         android:id="@+id/tipContent"
         layout="@layout/content_tip" />
 
+    <fragment
+        android:id="@+id/fragmentlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tipContent"
+        android:name="neyo.demo.tipcal.fragments.TipHistoryListFragment"
+        tools:layout="@layout/fragment_tip_history_list" />
+
 </RelativeLayout>
