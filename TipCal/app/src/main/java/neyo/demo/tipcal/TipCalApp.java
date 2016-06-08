@@ -8,7 +8,7 @@ import android.app.Application;
 public class TipCalApp extends Application {
     private final static String ABOUT_URL = "https://github.com/neyogiry";
 
-    public static String getAboutUrl() {
+    public String getAboutUrl() {
         return ABOUT_URL;
     }
 }

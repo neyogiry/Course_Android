@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -28,4 +29,5 @@ dependencies {
     compile "com.android.support:design:$rootProject.ext.supportLibraryVersion"
 
     compile "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
+    apt 'com.jakewharton:butterknife-compiler:8.0.1'
 }
