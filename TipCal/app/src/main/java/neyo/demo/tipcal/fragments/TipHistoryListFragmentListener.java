@@ -1,9 +1,12 @@
 package neyo.demo.tipcal.fragments;
 
+import neyo.demo.tipcal.models.TipRecord;
+
 /**
- * Created by Neyo on 08/06/2016.
+ * Created by Neyo
  */
 public interface TipHistoryListFragmentListener {
 
-    void action(String str);
+    void addToList(TipRecord record);
+    void clearList();
 }
