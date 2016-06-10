@@ -1,6 +1,7 @@
 package neyo.demo.tipcal.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,6 +16,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import neyo.demo.tipcal.R;
+import neyo.demo.tipcal.activities.TipDetailActivity;
 import neyo.demo.tipcal.adapters.OnItemClickListener;
 import neyo.demo.tipcal.adapters.TipAdapters;
 import neyo.demo.tipcal.models.TipRecord;
@@ -69,6 +71,11 @@ public class TipHistoryListFragment extends Fragment implements TipHistoryListFr
 
     @Override
     public void onItemClick(TipRecord tipRecord) {
-        Toast.makeText(getActivity(), tipRecord.getDateFormatted(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getActivity(), tipRecord.getDateFormatted(), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getActivity(), TipDetailActivity.class);
+        intent.putExtra(TipDetailActivity.TIP_KEY, tipRecord.getTip());
+        intent.putExtra(TipDetailActivity.BILL_TOTAL_KEY, tipRecord.getBill());
+        intent.putExtra(TipDetailActivity.DATE_KEY, tipRecord.getDateFormatted());
+        startActivity(intent);
     }
 }
