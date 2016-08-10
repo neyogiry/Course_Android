@@ -2,7 +2,7 @@ package neyo.demo.androidchat;
 
 import android.app.Application;
 
-import com.firebase.client.Firebase;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * Created by Neyo
@@ -16,7 +16,6 @@ public class AndroidChatApplicattion extends Application{
     }
 
     private void setupFirebase() {
-        Firebase.setAndroidContext(this);
-        Firebase.getDefaultConfig().setPersistenceEnabled(true);
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
     }
 }
