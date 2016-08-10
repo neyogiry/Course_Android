@@ -10,6 +10,8 @@
 # Built application files
 *.apk
 *.ap_
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
 
 # Files for the Dalvik VM
 *.dex
@@ -17,9 +19,17 @@
 # Java class files
 *.class
 
+# lint folder
+lint
+
 # Generated files
 bin/
 gen/
+classes/
+gen-external-apklibs/
+
+# maven output folder
+target
 
 # Gradle files
 .gradle/
@@ -33,6 +43,9 @@ proguard/
 
 # Log Files
 *.log
+
+# backup files
+*.bak
 
 # Android Studio Navigation editor temp files
 .navigation/
